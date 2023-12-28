@@ -86,7 +86,7 @@ class _RecommendViewState extends State<RecommendView> {
                     ),
                   ),
                 SizedBox(
-                  height: 460.h,
+                  height: 470.h,
                   child: PageView(
                     onPageChanged: (value) => onChange(
                       RecommendProductStatus.values[value],

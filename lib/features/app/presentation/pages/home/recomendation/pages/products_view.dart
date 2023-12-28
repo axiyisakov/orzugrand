@@ -32,16 +32,19 @@ class ProductsView extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          ListView.builder(
-            shrinkWrap: true,
-            padding: EdgeInsets.zero,
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) {
-              return _ProductCard(
-                product: products[index],
-              );
-            },
-            itemCount: products.length,
+          SizedBox(
+            height: 400.h,
+            child: ListView.builder(
+              shrinkWrap: true,
+              padding: EdgeInsets.zero,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return _ProductCard(
+                  product: products[index],
+                );
+              },
+              itemCount: products.length,
+            ),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width,
@@ -69,6 +72,7 @@ class _ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.configureDesignSize();
     return Card(
       elevation: .0,
       color: AppColors.accentWhite,
@@ -84,8 +88,8 @@ class _ProductCard extends StatelessWidget {
               flex: 3,
               child: Image.asset(
                 product.image,
-                height: 81.r,
-                width: 81.r,
+                height: 80.r,
+                width: 80.r,
               ),
             ),
             Expanded(
@@ -95,7 +99,9 @@ class _ProductCard extends StatelessWidget {
                 children: [
                   Text(
                     product.title,
-                    style: AppFontStyles.openSans14(),
+                    style: AppFontStyles.openSans14(
+                      fontSize: 14.sp,
+                    ),
                   ),
                   AppProductTile(
                     price: product.price,
