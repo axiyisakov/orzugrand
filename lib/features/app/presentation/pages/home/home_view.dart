@@ -90,7 +90,10 @@ class __HomeBodyState extends State<_HomeBody> {
 
 class _HomeSliverAppBar extends StatelessWidget {
   final String name;
-  const _HomeSliverAppBar({super.key, this.name = 'Ahmadjon'});
+  const _HomeSliverAppBar({
+    super.key,
+    this.name = 'Ahmadjon',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -145,6 +148,7 @@ class _CatalogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.configureDesignSize();
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: Spacing.size15.w,

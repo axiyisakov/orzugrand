@@ -8,7 +8,9 @@
 *===============================================================================
 */
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orzugrand/core/util/colors.dart';
+import 'package:orzugrand/core/util/extension.dart';
 import 'package:orzugrand/core/util/fonts.dart';
 import 'package:orzugrand/core/util/icons/gen/assets.gen.dart';
 import 'package:orzugrand/features/app/presentation/widgets/app_button.dart';
@@ -26,6 +28,7 @@ class AppProductTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.configureDesignSize();
     return CupertinoListTile(
       padding: EdgeInsets.zero,
       title: Text(
@@ -44,16 +47,16 @@ class AppProductTile extends StatelessWidget {
         ),
       ),
       trailing: SizedBox(
-        height: 32,
+        height: 32.h,
         child: AppButton(
           padding: iconPadding ??
-              const EdgeInsets.symmetric(
-                horizontal: 10,
+              EdgeInsets.symmetric(
+                horizontal: 10.w,
               ),
           onPressed: () {},
           text: Assets.icons.shopping.image(
-            height: 26,
-            width: 26,
+            height: 26.r,
+            width: 26.r,
             color: AppColors.accentWhite,
           ),
         ),

@@ -8,7 +8,9 @@
 *===============================================================================
 */
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orzugrand/core/util/colors.dart';
+import 'package:orzugrand/core/util/extension.dart';
 
 class AppButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -23,8 +25,9 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.configureDesignSize();
     return CupertinoButton(
-      padding: padding ?? const EdgeInsets.fromLTRB(18, 10, 18, 10),
+      padding: padding ?? EdgeInsets.fromLTRB(18.w, 10.h, 18.w, 10.h),
       onPressed: onPressed,
       color: AppColors.primaryColor,
       child: text,

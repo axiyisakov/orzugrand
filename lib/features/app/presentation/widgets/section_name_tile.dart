@@ -9,6 +9,7 @@
 */
 import 'package:flutter/cupertino.dart';
 import 'package:orzugrand/core/util/colors.dart';
+import 'package:orzugrand/core/util/extension.dart';
 import 'package:orzugrand/core/util/fonts.dart';
 
 class SectionNameTile extends StatelessWidget {
@@ -22,6 +23,7 @@ class SectionNameTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.configureDesignSize();
     return CupertinoListTile(
       title: Text(
         title,

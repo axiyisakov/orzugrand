@@ -10,6 +10,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:orzugrand/core/di/locator.dart';
+import 'package:orzugrand/core/util/extension.dart';
 import 'package:orzugrand/features/app/presentation/bloc/home/bloc/home_bloc.dart';
 import 'package:orzugrand/features/app/presentation/bloc/home/blog/bloc/blog_bloc.dart';
 import 'package:orzugrand/features/app/presentation/bloc/home/deliver/bloc/deliver_bloc.dart';
@@ -23,6 +24,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.configureDesignSize();
     return MultiBlocProvider(
       providers: [
         BlocProvider(

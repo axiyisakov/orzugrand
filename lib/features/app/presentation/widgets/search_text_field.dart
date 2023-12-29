@@ -10,6 +10,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:orzugrand/core/util/colors.dart';
+import 'package:orzugrand/core/util/extension.dart';
 import 'package:orzugrand/core/util/fonts.dart';
 
 class AppSearchBar extends StatelessWidget {
@@ -24,6 +25,7 @@ class AppSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.configureDesignSize();
     return CupertinoSearchTextField(
       prefixIcon: const Icon(
         CupertinoIcons.search,

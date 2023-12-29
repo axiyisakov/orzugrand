@@ -10,7 +10,7 @@ Created by Axmadjon Isaqov on 23:20:14 12.08.2023
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  AppSetup.init();
+  await AppSetup.init();
   di.configureDependencies();
   runApp(const MyApp());
 }

@@ -26,7 +26,7 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.configureDesignSize();
+    context.initDesignSize();
     return BlocBuilder<MainCubit, int>(builder: (context, state) {
       final cubit = context.read<MainCubit>();
       return Scaffold(
