@@ -10,16 +10,20 @@ _$ProductsBaseModelImpl _$$ProductsBaseModelImplFromJson(
         Map<String, dynamic> json) =>
     _$ProductsBaseModelImpl(
       type: $enumDecode(_$ProductsEnumEnumMap, json['type']),
-      products: (json['products'] as List<dynamic>)
-          .map((e) => PrpductOfTheDayModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      image: json['image'] as String,
+      title: json['title'] as String,
+      discount: json['discount'] as int?,
+      price: json['price'] as int,
     );
 
 Map<String, dynamic> _$$ProductsBaseModelImplToJson(
         _$ProductsBaseModelImpl instance) =>
     <String, dynamic>{
       'type': _$ProductsEnumEnumMap[instance.type]!,
-      'products': instance.products,
+      'image': instance.image,
+      'title': instance.title,
+      'discount': instance.discount,
+      'price': instance.price,
     };
 
 const _$ProductsEnumEnumMap = {

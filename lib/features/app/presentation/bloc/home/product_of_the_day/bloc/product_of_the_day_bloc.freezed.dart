@@ -16,42 +16,50 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProductOfTheDayEvent {
-  ProductOfTheDayStateStatus get status => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ProductOfTheDayStateStatus status) change,
+    required TResult Function(ProductsEnum type) change,
+    required TResult Function() getProductTypes,
+    required TResult Function(List<ProductsBaseModel> newProducts)
+        updateProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ProductOfTheDayStateStatus status)? change,
+    TResult? Function(ProductsEnum type)? change,
+    TResult? Function()? getProductTypes,
+    TResult? Function(List<ProductsBaseModel> newProducts)? updateProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ProductOfTheDayStateStatus status)? change,
+    TResult Function(ProductsEnum type)? change,
+    TResult Function()? getProductTypes,
+    TResult Function(List<ProductsBaseModel> newProducts)? updateProducts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeProductOfTheDayEvent value) change,
+    required TResult Function(_GetProductOfTheDayEvent value) getProductTypes,
+    required TResult Function(_UpdateProducts value) updateProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ChangeProductOfTheDayEvent value)? change,
+    TResult? Function(_GetProductOfTheDayEvent value)? getProductTypes,
+    TResult? Function(_UpdateProducts value)? updateProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeProductOfTheDayEvent value)? change,
+    TResult Function(_GetProductOfTheDayEvent value)? getProductTypes,
+    TResult Function(_UpdateProducts value)? updateProducts,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ProductOfTheDayEventCopyWith<ProductOfTheDayEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +68,6 @@ abstract class $ProductOfTheDayEventCopyWith<$Res> {
   factory $ProductOfTheDayEventCopyWith(ProductOfTheDayEvent value,
           $Res Function(ProductOfTheDayEvent) then) =
       _$ProductOfTheDayEventCopyWithImpl<$Res, ProductOfTheDayEvent>;
-  @useResult
-  $Res call({ProductOfTheDayStateStatus status});
 }
 
 /// @nodoc
@@ -74,31 +80,16 @@ class _$ProductOfTheDayEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? status = null,
-  }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as ProductOfTheDayStateStatus,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$ChangeProductOfTheDayEventImplCopyWith<$Res>
-    implements $ProductOfTheDayEventCopyWith<$Res> {
+abstract class _$$ChangeProductOfTheDayEventImplCopyWith<$Res> {
   factory _$$ChangeProductOfTheDayEventImplCopyWith(
           _$ChangeProductOfTheDayEventImpl value,
           $Res Function(_$ChangeProductOfTheDayEventImpl) then) =
       __$$ChangeProductOfTheDayEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({ProductOfTheDayStateStatus status});
+  $Res call({ProductsEnum type});
 }
 
 /// @nodoc
@@ -114,13 +105,13 @@ class __$$ChangeProductOfTheDayEventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
+    Object? type = null,
   }) {
     return _then(_$ChangeProductOfTheDayEventImpl(
-      null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as ProductOfTheDayStateStatus,
+      null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as ProductsEnum,
     ));
   }
 }
@@ -128,14 +119,14 @@ class __$$ChangeProductOfTheDayEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ChangeProductOfTheDayEventImpl implements _ChangeProductOfTheDayEvent {
-  const _$ChangeProductOfTheDayEventImpl(this.status);
+  const _$ChangeProductOfTheDayEventImpl(this.type);
 
   @override
-  final ProductOfTheDayStateStatus status;
+  final ProductsEnum type;
 
   @override
   String toString() {
-    return 'ProductOfTheDayEvent.change(status: $status)';
+    return 'ProductOfTheDayEvent.change(type: $type)';
   }
 
   @override
@@ -143,11 +134,11 @@ class _$ChangeProductOfTheDayEventImpl implements _ChangeProductOfTheDayEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeProductOfTheDayEventImpl &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status);
+  int get hashCode => Object.hash(runtimeType, type);
 
   @JsonKey(ignore: true)
   @override
@@ -159,27 +150,34 @@ class _$ChangeProductOfTheDayEventImpl implements _ChangeProductOfTheDayEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ProductOfTheDayStateStatus status) change,
+    required TResult Function(ProductsEnum type) change,
+    required TResult Function() getProductTypes,
+    required TResult Function(List<ProductsBaseModel> newProducts)
+        updateProducts,
   }) {
-    return change(status);
+    return change(type);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ProductOfTheDayStateStatus status)? change,
+    TResult? Function(ProductsEnum type)? change,
+    TResult? Function()? getProductTypes,
+    TResult? Function(List<ProductsBaseModel> newProducts)? updateProducts,
   }) {
-    return change?.call(status);
+    return change?.call(type);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ProductOfTheDayStateStatus status)? change,
+    TResult Function(ProductsEnum type)? change,
+    TResult Function()? getProductTypes,
+    TResult Function(List<ProductsBaseModel> newProducts)? updateProducts,
     required TResult orElse(),
   }) {
     if (change != null) {
-      return change(status);
+      return change(type);
     }
     return orElse();
   }
@@ -188,6 +186,8 @@ class _$ChangeProductOfTheDayEventImpl implements _ChangeProductOfTheDayEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeProductOfTheDayEvent value) change,
+    required TResult Function(_GetProductOfTheDayEvent value) getProductTypes,
+    required TResult Function(_UpdateProducts value) updateProducts,
   }) {
     return change(this);
   }
@@ -196,6 +196,8 @@ class _$ChangeProductOfTheDayEventImpl implements _ChangeProductOfTheDayEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ChangeProductOfTheDayEvent value)? change,
+    TResult? Function(_GetProductOfTheDayEvent value)? getProductTypes,
+    TResult? Function(_UpdateProducts value)? updateProducts,
   }) {
     return change?.call(this);
   }
@@ -204,6 +206,8 @@ class _$ChangeProductOfTheDayEventImpl implements _ChangeProductOfTheDayEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeProductOfTheDayEvent value)? change,
+    TResult Function(_GetProductOfTheDayEvent value)? getProductTypes,
+    TResult Function(_UpdateProducts value)? updateProducts,
     required TResult orElse(),
   }) {
     if (change != null) {
@@ -214,20 +218,282 @@ class _$ChangeProductOfTheDayEventImpl implements _ChangeProductOfTheDayEvent {
 }
 
 abstract class _ChangeProductOfTheDayEvent implements ProductOfTheDayEvent {
-  const factory _ChangeProductOfTheDayEvent(
-          final ProductOfTheDayStateStatus status) =
+  const factory _ChangeProductOfTheDayEvent(final ProductsEnum type) =
       _$ChangeProductOfTheDayEventImpl;
 
-  @override
-  ProductOfTheDayStateStatus get status;
-  @override
+  ProductsEnum get type;
   @JsonKey(ignore: true)
   _$$ChangeProductOfTheDayEventImplCopyWith<_$ChangeProductOfTheDayEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$GetProductOfTheDayEventImplCopyWith<$Res> {
+  factory _$$GetProductOfTheDayEventImplCopyWith(
+          _$GetProductOfTheDayEventImpl value,
+          $Res Function(_$GetProductOfTheDayEventImpl) then) =
+      __$$GetProductOfTheDayEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetProductOfTheDayEventImplCopyWithImpl<$Res>
+    extends _$ProductOfTheDayEventCopyWithImpl<$Res,
+        _$GetProductOfTheDayEventImpl>
+    implements _$$GetProductOfTheDayEventImplCopyWith<$Res> {
+  __$$GetProductOfTheDayEventImplCopyWithImpl(
+      _$GetProductOfTheDayEventImpl _value,
+      $Res Function(_$GetProductOfTheDayEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetProductOfTheDayEventImpl implements _GetProductOfTheDayEvent {
+  const _$GetProductOfTheDayEventImpl();
+
+  @override
+  String toString() {
+    return 'ProductOfTheDayEvent.getProductTypes()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetProductOfTheDayEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ProductsEnum type) change,
+    required TResult Function() getProductTypes,
+    required TResult Function(List<ProductsBaseModel> newProducts)
+        updateProducts,
+  }) {
+    return getProductTypes();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ProductsEnum type)? change,
+    TResult? Function()? getProductTypes,
+    TResult? Function(List<ProductsBaseModel> newProducts)? updateProducts,
+  }) {
+    return getProductTypes?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ProductsEnum type)? change,
+    TResult Function()? getProductTypes,
+    TResult Function(List<ProductsBaseModel> newProducts)? updateProducts,
+    required TResult orElse(),
+  }) {
+    if (getProductTypes != null) {
+      return getProductTypes();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeProductOfTheDayEvent value) change,
+    required TResult Function(_GetProductOfTheDayEvent value) getProductTypes,
+    required TResult Function(_UpdateProducts value) updateProducts,
+  }) {
+    return getProductTypes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeProductOfTheDayEvent value)? change,
+    TResult? Function(_GetProductOfTheDayEvent value)? getProductTypes,
+    TResult? Function(_UpdateProducts value)? updateProducts,
+  }) {
+    return getProductTypes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeProductOfTheDayEvent value)? change,
+    TResult Function(_GetProductOfTheDayEvent value)? getProductTypes,
+    TResult Function(_UpdateProducts value)? updateProducts,
+    required TResult orElse(),
+  }) {
+    if (getProductTypes != null) {
+      return getProductTypes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetProductOfTheDayEvent implements ProductOfTheDayEvent {
+  const factory _GetProductOfTheDayEvent() = _$GetProductOfTheDayEventImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateProductsImplCopyWith<$Res> {
+  factory _$$UpdateProductsImplCopyWith(_$UpdateProductsImpl value,
+          $Res Function(_$UpdateProductsImpl) then) =
+      __$$UpdateProductsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<ProductsBaseModel> newProducts});
+}
+
+/// @nodoc
+class __$$UpdateProductsImplCopyWithImpl<$Res>
+    extends _$ProductOfTheDayEventCopyWithImpl<$Res, _$UpdateProductsImpl>
+    implements _$$UpdateProductsImplCopyWith<$Res> {
+  __$$UpdateProductsImplCopyWithImpl(
+      _$UpdateProductsImpl _value, $Res Function(_$UpdateProductsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newProducts = null,
+  }) {
+    return _then(_$UpdateProductsImpl(
+      null == newProducts
+          ? _value._newProducts
+          : newProducts // ignore: cast_nullable_to_non_nullable
+              as List<ProductsBaseModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateProductsImpl implements _UpdateProducts {
+  const _$UpdateProductsImpl(final List<ProductsBaseModel> newProducts)
+      : _newProducts = newProducts;
+
+  final List<ProductsBaseModel> _newProducts;
+  @override
+  List<ProductsBaseModel> get newProducts {
+    if (_newProducts is EqualUnmodifiableListView) return _newProducts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_newProducts);
+  }
+
+  @override
+  String toString() {
+    return 'ProductOfTheDayEvent.updateProducts(newProducts: $newProducts)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateProductsImpl &&
+            const DeepCollectionEquality()
+                .equals(other._newProducts, _newProducts));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_newProducts));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateProductsImplCopyWith<_$UpdateProductsImpl> get copyWith =>
+      __$$UpdateProductsImplCopyWithImpl<_$UpdateProductsImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ProductsEnum type) change,
+    required TResult Function() getProductTypes,
+    required TResult Function(List<ProductsBaseModel> newProducts)
+        updateProducts,
+  }) {
+    return updateProducts(newProducts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ProductsEnum type)? change,
+    TResult? Function()? getProductTypes,
+    TResult? Function(List<ProductsBaseModel> newProducts)? updateProducts,
+  }) {
+    return updateProducts?.call(newProducts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ProductsEnum type)? change,
+    TResult Function()? getProductTypes,
+    TResult Function(List<ProductsBaseModel> newProducts)? updateProducts,
+    required TResult orElse(),
+  }) {
+    if (updateProducts != null) {
+      return updateProducts(newProducts);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeProductOfTheDayEvent value) change,
+    required TResult Function(_GetProductOfTheDayEvent value) getProductTypes,
+    required TResult Function(_UpdateProducts value) updateProducts,
+  }) {
+    return updateProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeProductOfTheDayEvent value)? change,
+    TResult? Function(_GetProductOfTheDayEvent value)? getProductTypes,
+    TResult? Function(_UpdateProducts value)? updateProducts,
+  }) {
+    return updateProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeProductOfTheDayEvent value)? change,
+    TResult Function(_GetProductOfTheDayEvent value)? getProductTypes,
+    TResult Function(_UpdateProducts value)? updateProducts,
+    required TResult orElse(),
+  }) {
+    if (updateProducts != null) {
+      return updateProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateProducts implements ProductOfTheDayEvent {
+  const factory _UpdateProducts(final List<ProductsBaseModel> newProducts) =
+      _$UpdateProductsImpl;
+
+  List<ProductsBaseModel> get newProducts;
+  @JsonKey(ignore: true)
+  _$$UpdateProductsImplCopyWith<_$UpdateProductsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ProductOfTheDayState {
+  List<ProductsBaseModel> get products => throw _privateConstructorUsedError;
+  ProductsEnum get type => throw _privateConstructorUsedError;
   ProductOfTheDayStateStatus get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -241,7 +507,10 @@ abstract class $ProductOfTheDayStateCopyWith<$Res> {
           $Res Function(ProductOfTheDayState) then) =
       _$ProductOfTheDayStateCopyWithImpl<$Res, ProductOfTheDayState>;
   @useResult
-  $Res call({ProductOfTheDayStateStatus status});
+  $Res call(
+      {List<ProductsBaseModel> products,
+      ProductsEnum type,
+      ProductOfTheDayStateStatus status});
 }
 
 /// @nodoc
@@ -258,9 +527,19 @@ class _$ProductOfTheDayStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? products = null,
+    Object? type = null,
     Object? status = null,
   }) {
     return _then(_value.copyWith(
+      products: null == products
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<ProductsBaseModel>,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as ProductsEnum,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -277,7 +556,10 @@ abstract class _$$ProductOfTheDayStateImplCopyWith<$Res>
       __$$ProductOfTheDayStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ProductOfTheDayStateStatus status});
+  $Res call(
+      {List<ProductsBaseModel> products,
+      ProductsEnum type,
+      ProductOfTheDayStateStatus status});
 }
 
 /// @nodoc
@@ -291,9 +573,19 @@ class __$$ProductOfTheDayStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? products = null,
+    Object? type = null,
     Object? status = null,
   }) {
     return _then(_$ProductOfTheDayStateImpl(
+      products: null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<ProductsBaseModel>,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as ProductsEnum,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -306,15 +598,30 @@ class __$$ProductOfTheDayStateImplCopyWithImpl<$Res>
 
 class _$ProductOfTheDayStateImpl implements _ProductOfTheDayState {
   const _$ProductOfTheDayStateImpl(
-      {this.status = ProductOfTheDayStateStatus.tecnoFirst});
+      {final List<ProductsBaseModel> products = const [],
+      this.type = ProductsEnum.first,
+      this.status = ProductOfTheDayStateStatus.initial})
+      : _products = products;
 
+  final List<ProductsBaseModel> _products;
+  @override
+  @JsonKey()
+  List<ProductsBaseModel> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
+
+  @override
+  @JsonKey()
+  final ProductsEnum type;
   @override
   @JsonKey()
   final ProductOfTheDayStateStatus status;
 
   @override
   String toString() {
-    return 'ProductOfTheDayState(status: $status)';
+    return 'ProductOfTheDayState(products: $products, type: $type, status: $status)';
   }
 
   @override
@@ -322,11 +629,14 @@ class _$ProductOfTheDayStateImpl implements _ProductOfTheDayState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductOfTheDayStateImpl &&
+            const DeepCollectionEquality().equals(other._products, _products) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.status, status) || other.status == status));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_products), type, status);
 
   @JsonKey(ignore: true)
   @override
@@ -339,8 +649,14 @@ class _$ProductOfTheDayStateImpl implements _ProductOfTheDayState {
 
 abstract class _ProductOfTheDayState implements ProductOfTheDayState {
   const factory _ProductOfTheDayState(
-      {final ProductOfTheDayStateStatus status}) = _$ProductOfTheDayStateImpl;
+      {final List<ProductsBaseModel> products,
+      final ProductsEnum type,
+      final ProductOfTheDayStateStatus status}) = _$ProductOfTheDayStateImpl;
 
+  @override
+  List<ProductsBaseModel> get products;
+  @override
+  ProductsEnum get type;
   @override
   ProductOfTheDayStateStatus get status;
   @override

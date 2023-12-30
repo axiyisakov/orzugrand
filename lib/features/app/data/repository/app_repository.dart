@@ -4,6 +4,8 @@ import 'package:orzugrand/features/app/data/models/blog/blog_model.dart';
 import 'package:orzugrand/features/app/data/models/delivery_model.dart';
 import 'package:orzugrand/features/app/data/models/discount/discount_model.dart';
 import 'package:orzugrand/features/app/data/models/product_of_the_day/product_of_day.dart';
+import 'package:orzugrand/features/app/data/models/products_base/products_base.dart';
+import 'package:orzugrand/features/app/data/models/products_base/products_enum.dart';
 
 @lazySingleton
 class AppRepository {
@@ -75,6 +77,29 @@ class AppRepository {
           title: 'Микроволновая печь соло Gorenje MO17E1W',
           discount: 20000000,
           price: 1700000,
+        ),
+      ];
+
+  List<ProductsBaseModel> get getPruductTypes => [
+        ProductsBaseModel(
+          type: ProductsEnum.first,
+          title: 'Микроволновая печь соло Gorenje MO17E1W',
+          discount: 20000000,
+          price: 1700000,
+          image: Assets.icons.ps4.path,
+        ),
+        ProductsBaseModel(
+          type: ProductsEnum.second,
+          title: 'Микроволновая печь соло Gorenje MO17E1W',
+          price: 1700000,
+          image: Assets.icons.iphone.path,
+        ),
+        ProductsBaseModel(
+          type: ProductsEnum.third,
+          title: 'Микроволновая печь соло Gorenje MO17E1W',
+          discount: 20000000,
+          price: 1700000,
+          image: Assets.icons.techno.path,
         ),
       ];
 

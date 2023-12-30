@@ -43,10 +43,15 @@ class __HomeBodyState extends State<_HomeBody> {
   final PageController _pageController = PageController(
     viewportFraction: .9,
   );
+
+  final PageController _pageController2 = PageController(
+    viewportFraction: .9,
+  );
   final ScrollController _scrollController = ScrollController();
   @override
   void dispose() {
     _pageController.dispose();
+    _pageController2.dispose();
     _scrollController.dispose();
     super.dispose();
   }

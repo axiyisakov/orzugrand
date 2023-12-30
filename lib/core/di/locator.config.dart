@@ -53,7 +53,8 @@ extension GetItInjectableX on _i1.GetIt {
       instanceName: 'internet_connection_checker',
     );
     gh.factory<_i9.MainCubit>(() => _i9.MainCubit());
-    gh.factory<_i10.ProductOfTheDayBloc>(() => _i10.ProductOfTheDayBloc());
+    gh.factory<_i10.ProductOfTheDayBloc>(
+        () => _i10.ProductOfTheDayBloc(appRepository: gh<_i3.AppRepository>()));
     gh.factory<_i11.RecommendBloc>(
         () => _i11.RecommendBloc(appRepository: gh<_i3.AppRepository>()));
     gh.factory<String>(

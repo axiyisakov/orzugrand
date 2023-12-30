@@ -21,7 +21,10 @@ ProductsBaseModel _$ProductsBaseModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ProductsBaseModel {
   ProductsEnum get type => throw _privateConstructorUsedError;
-  List<PrpductOfTheDayModel> get products => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  int? get discount => throw _privateConstructorUsedError;
+  int get price => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +38,12 @@ abstract class $ProductsBaseModelCopyWith<$Res> {
           ProductsBaseModel value, $Res Function(ProductsBaseModel) then) =
       _$ProductsBaseModelCopyWithImpl<$Res, ProductsBaseModel>;
   @useResult
-  $Res call({ProductsEnum type, List<PrpductOfTheDayModel> products});
+  $Res call(
+      {ProductsEnum type,
+      String image,
+      String title,
+      int? discount,
+      int price});
 }
 
 /// @nodoc
@@ -52,17 +60,32 @@ class _$ProductsBaseModelCopyWithImpl<$Res, $Val extends ProductsBaseModel>
   @override
   $Res call({
     Object? type = null,
-    Object? products = null,
+    Object? image = null,
+    Object? title = null,
+    Object? discount = freezed,
+    Object? price = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as ProductsEnum,
-      products: null == products
-          ? _value.products
-          : products // ignore: cast_nullable_to_non_nullable
-              as List<PrpductOfTheDayModel>,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -75,7 +98,12 @@ abstract class _$$ProductsBaseModelImplCopyWith<$Res>
       __$$ProductsBaseModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ProductsEnum type, List<PrpductOfTheDayModel> products});
+  $Res call(
+      {ProductsEnum type,
+      String image,
+      String title,
+      int? discount,
+      int price});
 }
 
 /// @nodoc
@@ -90,17 +118,32 @@ class __$$ProductsBaseModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = null,
-    Object? products = null,
+    Object? image = null,
+    Object? title = null,
+    Object? discount = freezed,
+    Object? price = null,
   }) {
     return _then(_$ProductsBaseModelImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as ProductsEnum,
-      products: null == products
-          ? _value.products
-          : products // ignore: cast_nullable_to_non_nullable
-              as List<PrpductOfTheDayModel>,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -108,7 +151,12 @@ class __$$ProductsBaseModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ProductsBaseModelImpl implements _ProductsBaseModel {
-  const _$ProductsBaseModelImpl({required this.type, required this.products});
+  const _$ProductsBaseModelImpl(
+      {required this.type,
+      required this.image,
+      required this.title,
+      this.discount,
+      required this.price});
 
   factory _$ProductsBaseModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductsBaseModelImplFromJson(json);
@@ -116,11 +164,17 @@ class _$ProductsBaseModelImpl implements _ProductsBaseModel {
   @override
   final ProductsEnum type;
   @override
-  final List<PrpductOfTheDayModel> products;
+  final String image;
+  @override
+  final String title;
+  @override
+  final int? discount;
+  @override
+  final int price;
 
   @override
   String toString() {
-    return 'ProductsBaseModel(type: $type, products: $products)';
+    return 'ProductsBaseModel(type: $type, image: $image, title: $title, discount: $discount, price: $price)';
   }
 
   @override
@@ -129,13 +183,17 @@ class _$ProductsBaseModelImpl implements _ProductsBaseModel {
         (other.runtimeType == runtimeType &&
             other is _$ProductsBaseModelImpl &&
             (identical(other.type, type) || other.type == type) &&
-            const DeepCollectionEquality().equals(other.products, products));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
+            (identical(other.price, price) || other.price == price));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, const DeepCollectionEquality().hash(products));
+  int get hashCode =>
+      Object.hash(runtimeType, type, image, title, discount, price);
 
   @JsonKey(ignore: true)
   @override
@@ -154,9 +212,11 @@ class _$ProductsBaseModelImpl implements _ProductsBaseModel {
 
 abstract class _ProductsBaseModel implements ProductsBaseModel {
   const factory _ProductsBaseModel(
-          {required final ProductsEnum type,
-          required final List<PrpductOfTheDayModel> products}) =
-      _$ProductsBaseModelImpl;
+      {required final ProductsEnum type,
+      required final String image,
+      required final String title,
+      final int? discount,
+      required final int price}) = _$ProductsBaseModelImpl;
 
   factory _ProductsBaseModel.fromJson(Map<String, dynamic> json) =
       _$ProductsBaseModelImpl.fromJson;
@@ -164,7 +224,13 @@ abstract class _ProductsBaseModel implements ProductsBaseModel {
   @override
   ProductsEnum get type;
   @override
-  List<PrpductOfTheDayModel> get products;
+  String get image;
+  @override
+  String get title;
+  @override
+  int? get discount;
+  @override
+  int get price;
   @override
   @JsonKey(ignore: true)
   _$$ProductsBaseModelImplCopyWith<_$ProductsBaseModelImpl> get copyWith =>

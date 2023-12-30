@@ -52,7 +52,10 @@ class HomeScreen extends StatelessWidget {
             ),
         ),
         BlocProvider(
-          create: (_) => sl<ProductOfTheDayBloc>(),
+          create: (_) => sl<ProductOfTheDayBloc>()
+            ..add(
+              const ProductOfTheDayEvent.getProductTypes(),
+            ),
         ),
       ],
       child: const HomeView(),
