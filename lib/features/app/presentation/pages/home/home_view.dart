@@ -43,9 +43,11 @@ class __HomeBodyState extends State<_HomeBody> {
   final PageController _pageController = PageController(
     viewportFraction: .9,
   );
+  final ScrollController _scrollController = ScrollController();
   @override
   void dispose() {
     _pageController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -77,6 +79,7 @@ class __HomeBodyState extends State<_HomeBody> {
           const ProductOfTheDayView().toSliver(),
           RecommendView(
             pageController: _pageController,
+            scrollController: _scrollController,
           ).toSliver(),
           const BlogView().toSliver(),
           Gap(Spacing.size90.r).toSliver(),

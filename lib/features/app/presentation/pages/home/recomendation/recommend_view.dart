@@ -23,9 +23,11 @@ typedef OnChange = void Function(RecommendProductStatus type);
 
 class RecommendView extends StatefulWidget {
   final PageController pageController;
+  final ScrollController scrollController;
   const RecommendView({
     super.key,
     required this.pageController,
+    required this.scrollController,
   });
 
   @override
@@ -37,6 +39,7 @@ class _RecommendViewState extends State<RecommendView> {
     'Новинки',
     'Популярные',
     'Скидки и рассрочки',
+    'other',
   ];
   void onChange(RecommendProductStatus type) =>
       context.read<RecommendBloc>().add(RecommendEvent.changeType(type));
@@ -55,36 +58,15 @@ class _RecommendViewState extends State<RecommendView> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const SectionNameTile(title: 'Рекомендуем вам'),
-                if (state.type == RecommendProductStatus.newProduct)
-                  SizedBox(
-                    height: 40.h,
-                    child: _RecommentCategories(
-                      onChange: onChange,
-                      type: RecommendProductStatus.newProduct,
-                      categories: categories,
-                      pageController: widget.pageController,
-                    ),
+                SizedBox(
+                  height: 40.h,
+                  child: _RecommentCategories(
+                    onChange: onChange,
+                    type: state.type,
+                    categories: categories,
+                    pageController: widget.pageController,
                   ),
-                if (state.type == RecommendProductStatus.popularProduct)
-                  SizedBox(
-                    height: 40.h,
-                    child: _RecommentCategories(
-                      onChange: onChange,
-                      type: RecommendProductStatus.popularProduct,
-                      categories: categories,
-                      pageController: widget.pageController,
-                    ),
-                  ),
-                if (state.type == RecommendProductStatus.discountProduct)
-                  SizedBox(
-                    height: 40.h,
-                    child: _RecommentCategories(
-                      onChange: onChange,
-                      type: RecommendProductStatus.discountProduct,
-                      categories: categories,
-                      pageController: widget.pageController,
-                    ),
-                  ),
+                ),
                 SizedBox(
                   height: 470.h,
                   child: PageView(
@@ -93,6 +75,9 @@ class _RecommendViewState extends State<RecommendView> {
                     ),
                     controller: widget.pageController,
                     children: [
+                      ProductsView(
+                        products: state.products,
+                      ),
                       ProductsView(
                         products: state.products,
                       ),
@@ -181,6 +166,7 @@ class _CategoryCard extends StatelessWidget {
       },
       child: Card(
         elevation: .0,
+        color: AppColors.accentWhite,
         margin: EdgeInsets.zero,
         child: Column(
           mainAxisSize: MainAxisSize.min,

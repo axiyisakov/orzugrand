@@ -12,7 +12,8 @@ class RecommendState with _$RecommendState {
 enum RecommendProductStatus {
   newProduct(0),
   popularProduct(1),
-  discountProduct(2);
+  discountProduct(2),
+  otherProducts(3);
 
   final int number;
   const RecommendProductStatus(this.number);

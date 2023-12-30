@@ -35,316 +35,93 @@ class ProductOfTheDayView extends StatelessWidget {
     context.configureDesignSize();
     return BlocBuilder<ProductOfTheDayBloc, ProductOfTheDayState>(
         builder: (context, state) {
-      return switch (state.status) {
-        ProductOfTheDayStateStatus.tecnoFirst => Column(
-            children: [
-              const SectionNameTile(
-                title: 'Товар дня',
-                trailing: '22:22:22',
-              ),
-              Container(
-                width: MediaQuery.sizeOf(context).width,
-                height: 303.h,
-                margin: EdgeInsets.only(left: Spacing.size16.w),
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    Positioned(
-                      right: -25.w,
-                      child: _ProductCard(
-                        scale: .8,
-                        product: PrpductOfTheDayModel(
-                          image: Assets.icons.ps4.path,
-                          title: 'Микроволновая печь соло Gorenje MO17E1W',
-                          discount: 2000000,
-                          price: 1750000,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      right: -1.w,
-                      child: _ProductCard(
-                        scale: .9,
-                        product: PrpductOfTheDayModel(
-                          image: Assets.icons.techno2.path,
-                          title: 'Микроволновая печь соло Gorenje MO17E1W',
-                          discount: 2000000,
-                          price: 1750000,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      child: _ProductCard(
-                        product: PrpductOfTheDayModel(
-                          image: Assets.icons.ps4.path,
-                          title: 'Микроволновая печь соло Gorenje MO17E1W',
-                          discount: 2000000,
-                          price: 1750000,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Gap(11.r),
-              SizedBox(
-                height: 34.h,
-                width: MediaQuery.sizeOf(context).width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _IndicatorSelector(
-                      isSelected: true,
-                      onChange: () {
-                        onChange(
-                          ProductOfTheDayStateStatus.tecnoFirst,
-                          context,
-                        );
-                      },
-                      child: Assets.icons.ps4.image(
-                        height: Spacing.size34.r,
-                        width: Spacing.size34.r,
-                      ),
-                    ),
-                    Gap(8.r),
-                    _IndicatorSelector(
-                      isSelected: false,
-                      onChange: () {
-                        onChange(
-                            ProductOfTheDayStateStatus.tecnoSecond, context);
-                      },
-                      child: Assets.icons.iphone.image(
-                        height: Spacing.size34.r,
-                        width: Spacing.size34.r,
-                      ),
-                    ),
-                    Gap(8.r),
-                    _IndicatorSelector(
-                      isSelected: false,
-                      onChange: () {
-                        onChange(
-                            ProductOfTheDayStateStatus.tecnoThird, context);
-                      },
-                      child: Assets.icons.techno.image(
-                        height: Spacing.size34.r,
-                        width: Spacing.size34.r,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Gap(26.r),
-            ],
+      return Column(
+        children: [
+          const SectionNameTile(
+            title: 'Товар дня',
+            trailing: '22:22:22',
           ),
-        ProductOfTheDayStateStatus.tecnoThird => Column(
-            children: [
-              const SectionNameTile(
-                title: 'Товар дня',
-                trailing: '22:22:22',
-              ),
-              Container(
-                width: MediaQuery.sizeOf(context).width,
-                height: 303.h,
-                margin: EdgeInsets.only(left: Spacing.size16.w),
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    Positioned(
-                      right: -25.w,
-                      child: _ProductCard(
-                        scale: .8,
-                        product: PrpductOfTheDayModel(
-                          image: Assets.icons.ps4.path,
-                          title: 'Микроволновая печь соло Gorenje MO17E1W',
-                          discount: 2000000,
-                          price: 1750000,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      right: -1.w,
-                      child: _ProductCard(
-                        scale: .9,
-                        product: PrpductOfTheDayModel(
-                          image: Assets.icons.techno2.path,
-                          title: 'Микроволновая печь соло Gorenje MO17E1W',
-                          discount: 2000000,
-                          price: 1750000,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      child: _ProductCard(
-                        product: PrpductOfTheDayModel(
-                          image: Assets.icons.ps4.path,
-                          title: 'Микроволновая печь соло Gorenje MO17E1W',
-                          discount: 2000000,
-                          price: 1750000,
-                        ),
-                      ),
-                    ),
-                  ],
+          Container(
+            width: MediaQuery.sizeOf(context).width,
+            height: 303.h,
+            margin: EdgeInsets.only(left: Spacing.size16.w),
+            child: PageView.builder(
+              children: [
+                _ProductCard(
+                  product: PrpductOfTheDayModel(
+                    image: Assets.icons.ps4.path,
+                    title: 'Микроволновая печь соло Gorenje MO17E1W',
+                    discount: 2000000,
+                    price: 1750000,
+                  ),
                 ),
-              ),
-              Gap(11.r),
-              SizedBox(
-                height: 34.h,
-                width: MediaQuery.sizeOf(context).width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _IndicatorSelector(
-                      isSelected: false,
-                      onChange: () {
-                        onChange(
-                          ProductOfTheDayStateStatus.tecnoFirst,
-                          context,
-                        );
-                      },
-                      child: Assets.icons.ps4.image(
-                        height: Spacing.size34.r,
-                        width: Spacing.size34.r,
-                      ),
-                    ),
-                    Gap(8.r),
-                    _IndicatorSelector(
-                      isSelected: false,
-                      onChange: () {
-                        onChange(
-                          ProductOfTheDayStateStatus.tecnoSecond,
-                          context,
-                        );
-                      },
-                      child: Assets.icons.iphone.image(
-                        height: Spacing.size34.r,
-                        width: Spacing.size34.r,
-                      ),
-                    ),
-                    Gap(8.r),
-                    _IndicatorSelector(
-                      isSelected: true,
-                      onChange: () {
-                        onChange(
-                          ProductOfTheDayStateStatus.tecnoThird,
-                          context,
-                        );
-                      },
-                      child: Assets.icons.techno.image(
-                        height: Spacing.size34.r,
-                        width: Spacing.size34.r,
-                      ),
-                    ),
-                  ],
+                _ProductCard(
+                  product: PrpductOfTheDayModel(
+                    image: Assets.icons.techno2.path,
+                    title: 'Микроволновая печь соло Gorenje MO17E1W',
+                    discount: 2000000,
+                    price: 1750000,
+                  ),
                 ),
-              ),
-              Gap(26.r),
-            ],
+                _ProductCard(
+                  product: PrpductOfTheDayModel(
+                    image: Assets.icons.ps4.path,
+                    title: 'Микроволновая печь соло Gorenje MO17E1W',
+                    discount: 2000000,
+                    price: 1750000,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ProductOfTheDayStateStatus.tecnoSecond => Column(
-            children: [
-              const SectionNameTile(
-                title: 'Товар дня',
-                trailing: '22:22:22',
-              ),
-              Container(
-                width: MediaQuery.sizeOf(context).width,
-                height: 303.h,
-                margin: EdgeInsets.only(left: Spacing.size16.w),
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    Positioned(
-                      right: -25.w,
-                      child: _ProductCard(
-                        scale: .8,
-                        product: PrpductOfTheDayModel(
-                          image: Assets.icons.ps4.path,
-                          title: 'Микроволновая печь соло Gorenje MO17E1W',
-                          discount: 2000000,
-                          price: 1750000,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      right: -1.w,
-                      child: _ProductCard(
-                        scale: .9,
-                        product: PrpductOfTheDayModel(
-                          image: Assets.icons.ps4.path,
-                          title: 'Микроволновая печь соло Gorenje MO17E1W',
-                          discount: 2000000,
-                          price: 1750000,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      child: _ProductCard(
-                        product: PrpductOfTheDayModel(
-                          image: Assets.icons.techno2.path,
-                          title: 'Микроволновая печь соло Gorenje MO17E1W',
-                          discount: 2000000,
-                          price: 1750000,
-                        ),
-                      ),
-                    ),
-                  ],
+          Gap(11.r),
+          SizedBox(
+            height: 34.h,
+            width: MediaQuery.sizeOf(context).width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _IndicatorSelector(
+                  isSelected: true,
+                  onChange: () {
+                    onChange(
+                      ProductOfTheDayStateStatus.tecnoFirst,
+                      context,
+                    );
+                  },
+                  child: Assets.icons.ps4.image(
+                    height: Spacing.size34.r,
+                    width: Spacing.size34.r,
+                  ),
                 ),
-              ),
-              Gap(11.r),
-              SizedBox(
-                height: 34.h,
-                width: MediaQuery.sizeOf(context).width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _IndicatorSelector(
-                      isSelected: false,
-                      onChange: () {
-                        onChange(
-                          ProductOfTheDayStateStatus.tecnoFirst,
-                          context,
-                        );
-                      },
-                      child: Assets.icons.ps4.image(
-                        height: Spacing.size34.r,
-                        width: Spacing.size34.r,
-                      ),
-                    ),
-                    Gap(8.r),
-                    _IndicatorSelector(
-                      isSelected: true,
-                      onChange: () {
-                        onChange(
-                          ProductOfTheDayStateStatus.tecnoSecond,
-                          context,
-                        );
-                      },
-                      child: Assets.icons.iphone.image(
-                        height: Spacing.size34.r,
-                        width: Spacing.size34.r,
-                      ),
-                    ),
-                    Gap(8.r),
-                    _IndicatorSelector(
-                      isSelected: false,
-                      onChange: () {
-                        onChange(
-                          ProductOfTheDayStateStatus.tecnoThird,
-                          context,
-                        );
-                      },
-                      child: Assets.icons.techno.image(
-                        height: Spacing.size34.r,
-                        width: Spacing.size34.r,
-                      ),
-                    ),
-                  ],
+                Gap(8.r),
+                _IndicatorSelector(
+                  isSelected: false,
+                  onChange: () {
+                    onChange(ProductOfTheDayStateStatus.tecnoSecond, context);
+                  },
+                  child: Assets.icons.iphone.image(
+                    height: Spacing.size34.r,
+                    width: Spacing.size34.r,
+                  ),
                 ),
-              ),
-              Gap(26.r),
-            ],
-          )
-      };
+                Gap(8.r),
+                _IndicatorSelector(
+                  isSelected: false,
+                  onChange: () {
+                    onChange(ProductOfTheDayStateStatus.tecnoThird, context);
+                  },
+                  child: Assets.icons.techno.image(
+                    height: Spacing.size34.r,
+                    width: Spacing.size34.r,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Gap(26.r),
+        ],
+      );
     });
   }
 }
